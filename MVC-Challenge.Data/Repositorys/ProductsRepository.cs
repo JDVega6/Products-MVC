@@ -21,6 +21,11 @@ namespace MVC_Challenge.Data.Repositorys
             _context.Add(entity);
         }
 
+        public void Update<T>(T entity) where T : class
+        {
+            _context.Update(entity);
+        }
+
         public void Delete<T>(T entity) where T : class
         {
             _context.Remove(entity);
@@ -32,9 +37,9 @@ namespace MVC_Challenge.Data.Repositorys
             return product;
         }
 
-        public List<Products> GetProductsByDescrption(string description)
+        public async Task<IEnumerable<Products>> GetProductsByDescription(string description)
         {
-            var products = _context.Product.ToList();
+            var products = await _context.Product.ToListAsync();
             if (description != null)
             {
                 products = products.Where(x => x.Description.ToLower().Contains(description)).ToList();
@@ -45,7 +50,7 @@ namespace MVC_Challenge.Data.Repositorys
 
         public async Task<Products> GetProductsById(int id)
         {
-            var product = await _context.Product.FirstOrDefaultAsync(u => u.Id == id);
+            var product = await _context.Product.FirstOrDefaultAsync( u => u.Id == id);
             return product;
         }
 

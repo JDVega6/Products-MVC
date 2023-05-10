@@ -17,6 +17,18 @@ namespace MVC_Challenge.Domain.Profiles
             CreateMap<Products, ProductsViewModel>()
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src => (EntityTypeOption)src.Type))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status ? EntityStatus.Activo : EntityStatus.Activo));
+
+            //POST
+            CreateMap<ProductCreateDto, Products>()
+                .ForMember(dest => dest.Type, opt =>opt.MapFrom(src => (int)src.Type))
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status == EntityStatus.Activo));
+
+            //PUT
+            CreateMap<ProductUpdateDto, Products>()
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => (int)src.Type))
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status == EntityStatus.Activo));
+
+
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MVC_Challenge.Data.Models;
 using MVC_Challenge.Data.Repositorys;
+using MVC_Challenge.Domain.Dtos;
 using MVC_Challenge.Domain.Services;
 using MVC_Challenge.Models;
 
@@ -10,66 +12,85 @@ namespace MVC_Challenge.Controllers
     public class ProductsController : Controller
     {
         private readonly IServicesProducts _services;
+        private readonly IProductsRepository _repo;
 
-        public ProductsController(IServicesProducts services)
+        public ProductsController(IServicesProducts services, IProductsRepository repo)
         {
             _services = services;
+            _repo = repo;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string description)
         {
 
-            var products = await _services.GetProductsAsync();
-            //var products = GetData();
-            return View(products);
+            var productList = await _services.GetProductsAsync();
+            if (!String.IsNullOrEmpty(description))
+            {
+                productList = await _services.GetByDescriptionAsync(description);
+            }
+            return View(productList);
         }
 
-        //public IActionResult Product(int idProduct)
-        //{
-        //    Products modelProduct = new Products();
-
-        //    ViewBag.Accion = "New Product";
-
-
-        //    if (idProduct != 0)
-        //    {
-        //        ViewBag.Accion = "Edit Product";
-        //        //modelProduct = await _servicioApi.GetById(idProduct);
-        //    }
-
-        //    return View(modelProduct);
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> Save(Products product)
-        //{
-        //    var productoToCreate = _mapper.Map<Products>(product);
-
-        //    if (((int)productoToCreate.Type) < 0 || ((int)productoToCreate.Type) > 3)
-        //    {
-        //        return NotFound("The type is out of range");
-        //    }
-
-        //    _repo.Add(productoToCreate);
-        //    if (await _repo.SaveAll())
-        //        return Ok(productoToCreate);
-
-        //    return BadRequest();
-
-
-        //}
-
-
-
-        public List<ProductsViewModel> GetData()
+        // GET:localhost:puerto/Producto/Create
+        public IActionResult Create()
         {
-            List<ProductsViewModel> products = new List<ProductsViewModel>();
-            products.Add(new ProductsViewModel { Id = 1, Description = "Country hous", Type = (EntityTypeOption)1, Value = 5000000, Status = (EntityStatus)1 });
-            products.Add(new ProductsViewModel { Id = 2, Description = "Country", Type = (EntityTypeOption)2, Value = 540000, Status = (EntityStatus)1 });
-            products.Add(new ProductsViewModel { Id = 1, Description = "House", Type = (EntityTypeOption)1, Value = 5000000, Status = (EntityStatus)1 });
+            return View();
+        }
 
-            return products;
+        [HttpPost]
+        public async Task<IActionResult> Create(ProductCreateDto product)
+        {
+            try
+            {
+                ViewBag.Accion = "New Product";
+                var response = await _services.Create(product);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return NoContent();
+                throw;
+            }
+        }
 
+        // GET:localhost:puerto/Producto/Create
+        public async  Task<IActionResult> Update(int idProduct)
+        {
+            ViewBag.Accion = "Edit Product";
+            var modelProduct = await _services.GetById(idProduct);
+            return View(modelProduct);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(ProductUpdateDto product)
+        {
+            try
+            {
+                var response = await _services.Update(product);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return NoContent();
+                throw;
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int idProduct)
+        {
+            try
+            {
+                await _services.DeleteById(idProduct);
+                TempData["sms"] = "Se elimino el registro exitosamente";
+                ViewBag.sms = TempData["sms"];
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return NoContent();
+                throw;
+            }
         }
     }
 }

@@ -12,7 +12,10 @@ namespace MVC_Challenge.Domain.Services
     public interface IServicesProducts
     {
         Task<IEnumerable<ProductsViewModel>> GetProductsAsync();
-        //Task<List<Products>> GetProducts();
-        //Task<bool> Save(Products product);
+        Task<IEnumerable<ProductsViewModel>> GetByDescriptionAsync(string description);
+        Task<ProductsViewModel> GetById(int idProduct);
+        Task<bool> Create(ProductCreateDto product);
+        Task<bool> Update(ProductUpdateDto product);
+        Task<bool> DeleteById(int idProduct);
     }
 }

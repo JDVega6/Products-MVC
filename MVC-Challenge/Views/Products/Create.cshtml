@@ -1,0 +1,45 @@
+﻿@model MVC_Challenge.Domain.Dtos.ProductCreateDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        @ViewBag.Accion
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" asp-controller="Products" method="post">
+            @*<input type="hidden" asp-for="Id" />*@
+            <div class="mb-2">
+                <label class="form-label">Description</label>
+                <input type="text" required class="form-control form-control-sm" asp-for="Description" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Type</label>
+                <select class="form-control form-control-sm" asp-for="Type">
+                    <option value="">Select Type</option>
+                    <option value="Property">Property</option>
+                    <option value="Vehicles">Vehicles</option>
+                    <option value="Land">Land</option>
+                    <option value="Apartments">Apartments</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Value</label>
+                <input type="number" step="any" class="form-control form-control-sm" asp-for="Value" placeholder="$" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label">Status</label>
+                <select class="form-control form-control-sm" asp-for="Status">
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success btn-sm">Save Changes</button>
+            <a asp-action="Index" asp-controller="Products" class="btn btn-warning btn-sm">Back Home</a>
+        </form>
+    </div>
+</div>

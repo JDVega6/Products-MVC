@@ -11,9 +11,10 @@ namespace MVC_Challenge.Data.Repositorys
     {
         void Add<T>(T entity) where T : class;
         void Delete<T>(T entity) where T : class;
+        void Update<T>(T entity) where T : class;
         Task<bool> SaveAll();
         Task<IEnumerable<Products>> GetProductsAsync();
         Task<Products> GetProductsById(int id);
-        public List<Products> GetProductsByDescrption(string descrption);
+        public Task<IEnumerable<Products>> GetProductsByDescription(string descrption);
     }
 }
