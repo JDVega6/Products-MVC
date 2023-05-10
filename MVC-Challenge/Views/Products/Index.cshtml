@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MVC_Challenge.Domain.Dtos.ProductsViewModel>
+@*@model IEnumerable<MVC_Challenge.Data.Models.Products>*@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (@ViewBag.smserror != null)
+{
+    <div class="col-md-12">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+            <h4><i class="icon fa fa-warning"></i></h4>
+        </div>
+    </div>
+}
+@if (@ViewBag.sms != null)
+{
+    <div class="col-md-12">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+            <h4><i class="icon fa fa-check"></i></h4>
+            @ViewBag.sms
+        </div>
+    </div>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Product List
+    </div>
+    <div class="card-body">
+        <div class="row mx-md-n5">
+            <div class="col px-md-5"><div class="p-3 bg-light"> <a asp-action="Product" asp-controller="Products" asp-route-idProducto="0" class="btn btn-success btn-sm">New product</a> </div></div>
+            <div class="col px-md-5">
+                <div class="p-3 bg-light">
+                    <form asp-action="Index" asp-controller="Products" method="get">
+                        <p>
+                            Search: <input type="text" name="description" class="form- text" />
+                            <button type="submit" class="btn btn-success btn-sm">Search</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Value</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Description</td>
+                        <td>@item.Type</td>
+                        <td>$ @item.Value</td>
+                        <td>@item.Status</td>
+                        <td>
+                            <a asp-action="Product" asp-controller="Products" asp-route-idProduct="@item.Id" class="btn btn-primary btn-sm">Editar</a>
+                            <a asp-action="Delete" asp-controller="Products" asp-route-idProduct="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

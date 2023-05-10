@@ -1,0 +1,15 @@
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\bin\Debug\net6.0\MVC-Challenge.Domain.deps.json
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\bin\Debug\net6.0\MVC-Challenge.Domain.dll
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\bin\Debug\net6.0\MVC-Challenge.Domain.pdb
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\obj\Debug\net6.0\MVC-Challenge.Domain.csproj.AssemblyReference.cache
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\obj\Debug\net6.0\MVC-Challenge.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\obj\Debug\net6.0\MVC-Challenge.Domain.AssemblyInfoInputs.cache
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\obj\Debug\net6.0\MVC-Challenge.Domain.AssemblyInfo.cs
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\obj\Debug\net6.0\MVC-Challenge.Domain.csproj.CoreCompileInputs.cache
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\obj\Debug\net6.0\MVC-Challenge.Domain.dll
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\obj\Debug\net6.0\refint\MVC-Challenge.Domain.dll
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\obj\Debug\net6.0\MVC-Challenge.Domain.pdb
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\obj\Debug\net6.0\ref\MVC-Challenge.Domain.dll
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\bin\Debug\net6.0\MVC-Challenge.Data.dll
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\bin\Debug\net6.0\MVC-Challenge.Data.pdb
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Domain\obj\Debug\net6.0\MVC-Challenge.Domain.csproj.CopyComplete

@@ -1,0 +1,14 @@
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\bin\Debug\net6.0\MVC-Challenge.Data.deps.json
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\bin\Debug\net6.0\MVC-Challenge.Data.runtimeconfig.json
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\bin\Debug\net6.0\MVC-Challenge.Data.dll
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\bin\Debug\net6.0\MVC-Challenge.Data.pdb
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\obj\Debug\net6.0\MVC-Challenge.Data.csproj.AssemblyReference.cache
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\obj\Debug\net6.0\MVC-Challenge.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\obj\Debug\net6.0\MVC-Challenge.Data.AssemblyInfoInputs.cache
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\obj\Debug\net6.0\MVC-Challenge.Data.AssemblyInfo.cs
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\obj\Debug\net6.0\MVC-Challenge.Data.csproj.CoreCompileInputs.cache
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\obj\Debug\net6.0\MVC-Challenge.Data.dll
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\obj\Debug\net6.0\refint\MVC-Challenge.Data.dll
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\obj\Debug\net6.0\MVC-Challenge.Data.pdb
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\obj\Debug\net6.0\MVC-Challenge.Data.genruntimeconfig.cache
+C:\Users\latitude\Desktop\pevaar\Challenge2- MVC\challenge\MVC-Challenge\MVC-Challenge.Data\obj\Debug\net6.0\ref\MVC-Challenge.Data.dll
