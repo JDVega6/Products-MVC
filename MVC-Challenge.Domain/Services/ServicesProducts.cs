@@ -32,19 +32,9 @@ namespace MVC_Challenge.Domain.Services
 
         public async Task<IEnumerable<ProductsViewModel>> GetByDescriptionAsync(string description)
         {
-            description = description.ToLower();
-            if (int.TryParse(description, out int number))
-            {
-                List<Products> productsList = new List<Products>();
-                var product = await _repo.GetProductsById(number);
-                productsList.Add(product);
-                return _mapper.Map<IEnumerable<ProductsViewModel>>(productsList);
-            }
-            else
-            {
+                description = description.ToLower();
                 var productsList = await _repo.GetProductsByDescription(description);
                 return _mapper.Map<IEnumerable<ProductsViewModel>>(productsList);
-            }
         }
 
         public async Task<bool> Create(ProductCreateDto product)

@@ -16,17 +16,17 @@ namespace MVC_Challenge.Domain.Profiles
             //GET - VIEW MODEL
             CreateMap<Products, ProductsViewModel>()
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src => (EntityTypeOption)src.Type))
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status ? EntityStatus.Activo : EntityStatus.Activo));
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status ? EntityStatus.Active : EntityStatus.Inactive));
 
             //POST
             CreateMap<ProductCreateDto, Products>()
                 .ForMember(dest => dest.Type, opt =>opt.MapFrom(src => (int)src.Type))
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status == EntityStatus.Activo));
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status == EntityStatus.Active));
 
             //PUT
             CreateMap<ProductUpdateDto, Products>()
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src => (int)src.Type))
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status == EntityStatus.Activo));
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status == EntityStatus.Active));
 
 
         }

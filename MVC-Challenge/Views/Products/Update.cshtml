@@ -3,7 +3,7 @@
     ViewData["Title"] = "Update";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@Model
 <div class="card">
     <div class="card-header">
         @ViewBag.Accion
@@ -30,17 +30,11 @@
                 <label class="form-label">Value</label>
                 <input type="text" class="form-control form-control-sm" asp-for="Value" placeholder="$" />
             </div>
-
-            <div class="mb-2">
-                <label class="form-label">Value</label>
-                <input type="number" class="form-control form-control-sm" asp-for="Value" placeholder="$" />
-            </div>
-
             <div class="mb-2">
                 <label class="form-label">Status</label>
                 <select class="form-control form-control-sm" asp-for="Status">
-                    <option value="Active">Active</option>
                     <option value="Inactive">Inactive</option>
+                    <option value="Active">Active</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-success btn-sm">Save Changes</button>

@@ -9,7 +9,7 @@ using MVC_Challenge.Models;
 
 namespace MVC_Challenge.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : AlertsBoostrapController
     {
         private readonly IServicesProducts _services;
         private readonly IProductsRepository _repo;
@@ -22,13 +22,31 @@ namespace MVC_Challenge.Controllers
 
         public async Task<IActionResult> Index(string description)
         {
-
             var productList = await _services.GetProductsAsync();
+            ProductsViewModel product = new ProductsViewModel();
+
             if (!String.IsNullOrEmpty(description))
             {
-                productList = await _services.GetByDescriptionAsync(description);
+                if (int.TryParse(description, out int number))
+                    product = await _services.GetById(number);
+                else
+                    productList = await _services.GetByDescriptionAsync(description);
             }
-            return View(productList);
+
+            Success("The information was loaded correctly.");
+            ViewBag.Products = productList;
+
+            if (productList.Count() == 0)
+            {
+                Warning("There are no products available");
+            }
+            if (product == null)
+            {
+                ProductsViewModel productError = new ProductsViewModel();
+                Danger("The product is not found in the database..");
+                return View(productError);
+            }
+            return View(product);
         }
 
         // GET:localhost:puerto/Producto/Create
@@ -44,11 +62,14 @@ namespace MVC_Challenge.Controllers
             {
                 ViewBag.Accion = "New Product";
                 var response = await _services.Create(product);
+                Info("The product was created successfully.");
                 return RedirectToAction("Index");
             }
             catch (Exception)
             {
-                return NoContent();
+
+                Danger("The product creation was unsuccessful.");
+                return RedirectToAction("Index");
                 throw;
             }
         }
@@ -67,6 +88,7 @@ namespace MVC_Challenge.Controllers
             try
             {
                 var response = await _services.Update(product);
+                Info("The product was successfully updated.");
                 return RedirectToAction("Index");
             }
             catch (Exception)

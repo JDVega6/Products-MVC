@@ -1,27 +1,8 @@
-﻿@model IEnumerable<MVC_Challenge.Domain.Dtos.ProductsViewModel>
-@*@model IEnumerable<MVC_Challenge.Data.Models.Products>*@
+﻿@model MVC_Challenge.Domain.Dtos.ProductsViewModel
 @{
     ViewData["Title"] = "Home Page";
-}
-
-@if (@ViewBag.smserror != null)
-{
-    <div class="col-md-12">
-        <div class="alert alert-warning alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-            <h4><i class="icon fa fa-warning"></i></h4>
-        </div>
-    </div>
-}
-@if (@ViewBag.sms != null)
-{
-    <div class="col-md-12">
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-            <h4><i class="icon fa fa-check"></i></h4>
-            @ViewBag.sms
-        </div>
-    </div>
+    //Lista
+    IEnumerable<MVC_Challenge.Domain.Dtos.ProductsViewModel> productList = ViewBag.Products;
 }
 
 <div class="text-center">
@@ -59,17 +40,23 @@
                 </tr>
             </thead>
             <tbody>
-                @if (Model.Count() == 0 )
+                @if (productList.ToList().Select(p => p.Id).Contains(Model.Id))
                 {
-                    <tr>
+                   <tr>
+                        <td>@Model.Id</td>
+                        <td>@Model.Description</td>
+                        <td>@Model.Type</td>
+                        <td>$ @Model.Value</td>
+                        <td>@Model.Status</td>
                         <td>
-                            No Match Any Document
+                            <a asp-action="Update" asp-controller="Products" asp-route-idProduct="@Model.Id" class="btn btn-primary btn-sm">Editar</a>
+                            <a asp-action="Delete" asp-controller="Products" asp-route-idProduct="@Model.Id" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
                 }
                 else
                 {
-                    @foreach (var item in Model)
+                    @foreach (var item in productList)
                     {
                         <tr>
                             <td>@item.Id</td>
@@ -80,13 +67,24 @@
                             <td>
                                 <a asp-action="Update" asp-controller="Products" asp-route-idProduct="@item.Id" class="btn btn-primary btn-sm">Editar</a>
                                 <a asp-action="Delete" asp-controller="Products" asp-route-idProduct="@item.Id" class="btn btn-danger btn-sm">Delete</a>
-
                             </td>
                         </tr>
                     }
                 }
-                
+                @if (!productList.ToList().Select(p => p.Id).Contains(Model.Id) && productList.Count() == 0)
+                {
+                    <tr>
+                        <td>
+                            <div class="card-header">
+                                There are no products available
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+
             </tbody>
         </table>
     </div>
 </div>
+

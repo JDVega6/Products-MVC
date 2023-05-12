@@ -1,0 +1,11 @@
+﻿﻿@using MVC_Challenge.Models.Enums
+@foreach (string alerta in TypeAlert.Alertas)
+{
+    if (TempData.ContainsKey(alerta))
+    {
+                <div class="alert alert-@alerta alert-dismissible fade show" role="alert">
+                        @TempData[alerta]
+                </div>
+    }
+}
+

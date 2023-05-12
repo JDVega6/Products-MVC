@@ -16,8 +16,8 @@ namespace MVC_Challenge.Domain.Dtos
     }
     public enum EntityStatus
     {
-        Inactivo,
-        Activo
+        Inactive,
+        Active
     }
     public class ProductsViewModel
     {
